@@ -6,6 +6,7 @@ class App extends Component {
 
 
   constructor() {
+    console.log('Constructor');
     super()
     this.state = {
       name: { first: "Sigurd", last: "Watt" }
@@ -15,6 +16,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('render');
     return (
       <div className="App">
         <header className="App-header">
@@ -24,7 +26,16 @@ class App extends Component {
           {/* <button onClick={() => { this.setState({ name: "Jim" }) } } >Change Name</button> */}
           {/* This line creates a new object in the state so that the DOM re-renders and updates */}
 
-          <button onClick={() => { this.setState({name:{ first: "Dig", last: "Busby" }}) } } >Change Name</button>
+          <button onClick={() => { 
+            this.setState( () => {
+              return {
+                name:{ first: "Dig", last: "Busby" }
+              }
+            }, () => {
+              console.log( this.state.name );
+            }) 
+          }
+          } >Change Name</button>
         </header>
       </div>
     );
