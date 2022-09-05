@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
+import CardList from './components/card-list/card-list.component'
+import SearchBox from './components/search-box/search-box.component'
 
 class App extends Component {
 
@@ -54,18 +56,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <input type="text" onChange={ onSearchEvent 
-            // If we put a function in here it would be an anon function. 
-            // Donc, it would be rebuilt everytime render was called (not performant) 
-        } 
-          />
+          <SearchBox  onChangeHandler={onSearchEvent} placeholder="Search Monsters" className="search-monsters" />  
           <p>My name is: { this.state.name.first } { this.state.name.last }</p>
-          {
-            filteredMonsters.map(monster => {
-              return <p key={monster.id}>{monster.name}</p>
-            })
-          }
+
+          <CardList filteredMonsters={filteredMonsters} />
+
           {/* <button onClick={() => { this.setState({ name: "Jim" }) } } >Change Name</button> */}
           {/* This line creates a new object in the state so that the DOM re-renders and updates */}
 
