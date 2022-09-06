@@ -1,8 +1,6 @@
-import { Component } from 'react';
+const Card = ( { monster } ) => {
 
-const Card = ( props ) => {
-
-    const { id, name, email } = props.monster
+    const { id, name, email } = monster
 
     return (
         <div className='card-container' key={id}>
