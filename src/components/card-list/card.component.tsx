@@ -1,4 +1,11 @@
-const Card = ( { monster } ) => {
+import { Monster } from '../../App'
+
+type CardProps = {
+    monster: Monster;
+}
+
+
+const Card = ( { monster }: CardProps ) => {
 
     const { id, name, email } = monster
 

@@ -1,11 +1,19 @@
-import { Component } from "react";
+import { ChangeEvent } from 'react';
 import './search-box.style.css'
 
-const SearchBox = ( props ) => {
-    
-    const { onChangeHandler, placeholder, className } = props;
+type SearchBoxProps = {
+    className: string;
+    placeholder: string;
+    onChangeHandler: (event: ChangeEvent<HTMLInputElement>) => void;
+}
 
-    return (
+
+const SearchBox = ({
+    className, 
+    placeholder, 
+    onChangeHandler
+}: SearchBoxProps ) => (
+    
             <input 
                 type="search" 
                 className={ `search-box ${className }` } 
@@ -14,7 +22,6 @@ const SearchBox = ( props ) => {
             />
             // If we put a function in here it would be an anon function. 
             // Donc, it would be rebuilt everytime render was called (not performant) 
-    )
-}
+)
 
 export default SearchBox

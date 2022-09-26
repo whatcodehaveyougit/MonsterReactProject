@@ -1,8 +1,13 @@
-import { Component } from 'react';
 import './card-list.styles.css'
-import Card from '../card-list/card.component'
+import { Monster } from '../../App'
+import Card from './card.component'
 
-const CardList = ( { filteredMonsters } ) => {
+
+type CardListProps = {
+    filteredMonsters: Monster[];
+}
+
+const CardList = ( { filteredMonsters }: CardListProps ) => {
 
     return (
         <div className='card-list'>
